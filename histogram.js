@@ -18,7 +18,7 @@ var z = d3.scaleOrdinal()
     .range(["green", "blue", "red", "purple", "turquoise", "orange"]);
 
 // Adds the svg canvas
-var svg = d3.select("#svg1")
+var svg2 = d3.select("#svg1")
     .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -40,7 +40,7 @@ d3.csv("birthdata4.csv", function(d, i, columns) {
   x1.domain(keys).rangeRound([0, x0.bandwidth()]);
   y.domain([0, .3]).nice();
 
-  svg.append("g")
+  svg2.append("g")
     .selectAll("g")
     .data(birthdata)
     .enter().append("g")
@@ -54,10 +54,10 @@ d3.csv("birthdata4.csv", function(d, i, columns) {
       .attr("height", function(d) { return height - y(d.value); })
       .attr("fill", function(d) { return z(d.key); });
 
-  svg.append("g")
+  svg2.append("g")
       .attr("class", "axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x0).tickSize(0))
+      .call(d3.axisBottom(x0).tickSize(0).tickPadding(5))
       .append("text")
       .attr("x", width/2)
       .attr("dy", "2em")
@@ -67,9 +67,9 @@ d3.csv("birthdata4.csv", function(d, i, columns) {
       .style("font-size", 12)
       .text("Year");
 
-  svg.append("g")
+  svg2.append("g")
       .attr("class", "axis")
-      .call(d3.axisLeft(y).tickFormat(d3.format(".0%")).ticks(6))
+      .call(d3.axisLeft(y).ticks(6))
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("x", 0-(height/2))
@@ -81,7 +81,7 @@ d3.csv("birthdata4.csv", function(d, i, columns) {
       .style("font-size", 12)
       .text("Proportion of Births to First Time Mothers");
 
-  var legend = svg.append("g")
+  var legend = svg2.append("g")
       .attr("font-family", "sans-serif")
       .attr("font-size", 10)
       .attr("text-anchor", "end")
@@ -105,13 +105,13 @@ d3.csv("birthdata4.csv", function(d, i, columns) {
       .text(function(d) { return d; });
   
   // Add a Title
-  svg.append("text")
+  svg2.append("text")
   .attr("x", (width / 2))
   .attr("y", 0 - (margin.top / 2))
   .attr("text-anchor", "middle")
   .attr("font-weight", "bold")
-  .style("font-size", "16px")
+  .style("font-size", "14px")
   // .style("text-decoration", "underline")
-  .text("Age of First Time Mothers");
+  .text("Proportion of Births to First Time Mothers by Age");
 
 });
