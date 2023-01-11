@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style> /* set the CSS */
+.axis .domain {
+  display: none;
+}
+body { font: 12px Arial;}
+path { 
+    stroke: green;
+    stroke-width: 2;
+    fill: none;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: grey;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+.grid .tick {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+.grid path {
+    stroke-width: 0;
+}
+
+</style>
+
+<body>
+<!-- load the d3.js library -->  
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<div style="color:green;padding: 10px 10px 10px 45px; font-size: larger;">
+    <h3>Hypothesis: </h3> 
+    <p>Women in the USA are waiting until they are older to have their first child.</p>
+</div>
+<div style="padding: 10px 10px 20px 15px;">
+    <svg id="svg2" width="600" height="300"></svg>
+    <script src="scatterplot.js"></script>
+</div>
+
+<div style="padding: 20px 10px 0px 10px;">
+    <svg id="svg1" width="600" height="300"></svg>
+    <script src="histogram.js"></script>
+</div>
+<div style="color: black;padding:0px 10px 10px 45px;">
+    <h3>Source: </h3> 
+    Centers for Disease Control and Prevention, National Center for Health Statistics. National Vital Statistics System, Natality on CDC WONDER Online Database. Data are from the Natality Records 2007-2020 (and the Natality Records 2003-2006), as compiled from data provided by the 57 vital statistics jurisdictions through the Vital Statistics Cooperative Program. Accessed at http://wonder.cdc.gov/natality-current.html (and  http://wonder.cdc.gov/natality-v2006.html).
+</div>
+
+<!-- <div id="div1" width="600" height="300"></div>
+
+<script src="histogram.js"></script> -->
+
+<!-- <div id="div2" width="600" height="300"></div>
+
+<script src="scatterplot.js"></script> -->
+
+<!-- <div id="div3" width="600" height="300"></div>
+
+<script src="test.js"></script> -->
+
+</body>
+</html>
